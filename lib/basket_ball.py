@@ -182,3 +182,64 @@ def game_dict():
             ]
         }
     }
+
+def num_points_per_game(player_name):
+    for team in game_dict().values():
+        for player in team["players"]:
+            if player["name"] == player_name:
+                return player["points_per_game"]
+
+
+def player_age(player_name):
+    for team in game_dict().values():
+        for player in team["players"]:
+            if player["name"] == player_name:
+                return player["age"]
+
+
+def team_colors(team_name):
+    for team in game_dict().values():
+        if team["team_name"] == team_name:
+            return team["colors"]
+        
+def team_names():
+    all_teams = []
+    for team in game_dict().values():
+        all_teams.append(team["team_name"])
+
+    return all_teams
+
+def player_numbers(team_name):
+    all_team_player_numbers = []
+    for team in game_dict().values():
+        if team["team_name"] == team_name:
+           for player in team["players"]:
+                all_team_player_numbers.append(player["number"])
+    return all_team_player_numbers
+
+def player_stats(player_name):
+    for team in game_dict().values():
+        for player in team["players"]:
+            if player["name"] == player_name:
+                return player
+            
+# def average_rebounds_by_shoe_brand(shoe_brand):
+#     brand_rebounds= []
+#     for team in game_dict().values():
+#         for player in team["players"]:
+#             if player["shoe_brand"] == shoe_brand:
+#                 brand_rebounds.append(player["rebounds_per_game"])
+    
+#     average = sum(brand_rebounds)/len(brand_rebounds) if brand_rebounds else 0
+#     rounded_avg = round(average,2)
+#     return rounded_avg
+
+            
+
+    
+            
+print(average_rebounds_by_shoe_brand("Nike"))
+
+
+            
+
